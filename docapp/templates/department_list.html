@@ -1,0 +1,13 @@
+<!-- department_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Departments</h1>
+  <ul>
+    {% for department in departments %}
+      <li><a href="{% url 'department_detail' department.id %}">{{ department.dept_name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
+

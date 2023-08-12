@@ -1,0 +1,14 @@
+<!-- user_appointments.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Your Appointments</h1>
+  
+  <ul>
+    {% for appointment in appointments %}
+      <li>{{ appointment.appointment_datetime }} - {{ appointment.doctor.doctor.first_name }} {{ appointment.doctor.doctor.last_name }}</li>
+    {% endfor %}
+  </ul>
+  
+{% endblock content %}

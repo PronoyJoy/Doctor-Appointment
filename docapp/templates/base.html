@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Docapp</title>
+    <head>
+      
+    </head>
+
+  </head>
+  <body>
+
+
+
+    <a class="nav-link" href="{% url 'home' %}"><button class="btn custom-btn custom-btn-bg custom-btn-link" type="button">Home</button></a>
+
+    <!-- MENU -->
+    {% if user.is_authenticated %}
+
+    <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signout' %}"><button class="btn custom-btn custom-btn-bg custom-btn-link" type="button">Logout</button></a>
+    </li>
+     
+    <li class="nav-item">
+      {% if user.doctorprofile %}
+        <a href="{% url 'doctor_profile1' user.doctorprofile.id %}" class="nav-link">
+          <span data-hover="Profile"> <i class='uil uil-user'></i>Doctor Account</span>
+        </a>
+      {% else %}
+        <a href="{% url 'patient_profile' user.username %}" class="nav-link">
+          <span data-hover="Profile"> <i class='uil uil-user'></i>Patient Account</span>
+        </a>
+      {% endif %}
+    </li>
+
+
+
+     
+  
+
+
+
+
+
+{% else %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}"><button class="btn custom-btn custom-btn-bg custom-btn-link" type="button">registration</button></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signin' %}"><button class="btn custom-btn custom-btn-bg custom-btn-link" type="button">Log in</button></a>
+        </li>
+        
+{% endif %}
+
+  
+    {% block content %}
+    
+    {% endblock content %}
+
+
+  
+
+  </body>
+</html>

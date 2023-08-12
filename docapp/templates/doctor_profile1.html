@@ -1,0 +1,17 @@
+<!-- doctor_profile.html or doctor_profile1.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Doctor Profile</h1>
+  <p>Name: {{ doctor.doctor.get_full_name }}</p>
+  <p>Specialization: {{ doctor.specialization }}</p>
+  <!-- Display other doctor profile information here -->
+
+  <h2>Your Appointments</h2>
+  <ul>
+    {% for appointment in doctor.appointment_set.all %}
+      <li>{{ appointment.appointment_datetime }} - {{ appointment.patient.patient.first_name }} {{ appointment.patient.patient.last_name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

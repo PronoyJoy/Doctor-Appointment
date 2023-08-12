@@ -1,0 +1,13 @@
+<!-- doctor_profile.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Doctor Profile</h1>
+  <h2>{{ doctor.doctor.first_name }} {{ doctor.doctor.last_name }}</h2>
+  <p>Phone: {{ doctor.phone }}</p>
+  <p>Specialization: {{ doctor.specialization }}</p>
+  <p>About: {{ doctor.about }}</p>
+  
+  <a href="{% url 'create_appointment' doctor.id %}">Schedule an Appointment</a>
+{% endblock content %}

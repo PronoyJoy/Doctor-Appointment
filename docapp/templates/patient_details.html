@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+
+{% if registered %}
+
+<h2> Thank you <h2>
+
+{% else %}
+
+ <center CLASS="mt-5">
+        <h1> CREATE AN ACCOUNT </h1>
+</center>
+
+
+<div class= "container w-50">
+
+<form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %} 
+        {{ profile_form | crispy}}
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3 mb-3">
+                <input type="submit" value="Register" class="btn btn-primary btn-block">
+            </div>
+        </div>
+
+</form>
+</div>
+
+{% endif %}
+
+{% endblock content %}

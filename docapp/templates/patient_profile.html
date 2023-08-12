@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Patient Profile</h1>
+  {% if has_profile %}
+    <p><strong>Age:</strong> {{ data.age }}</p>
+    <p><strong>Address:</strong> {{ data.address }}</p>
+
+    <a href="{% url 'user_appointments' %}" class="btn btn-primary">View My Appointments</a>
+  {% else %}
+    <p>No profile data available for this user.</p>
+  {% endif %}
+
+  {% if not has_profile %}
+    <p>Profile data does not exist for this user.</p>
+    <a href="{% url 'add_patient_profile' username %}">Add Patient Profile</a>
+  {% endif %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+<!-- home.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Welcome to our Hospital</h1>
+  <p>Explore our departments and doctors.</p>
+  
+  <a href="{% url 'department_list' %}">View Departments</a>
+{% endblock content %}
+

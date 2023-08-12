@@ -1,0 +1,16 @@
+<!-- department_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if department %}
+    <h1>{{ department.dept_name }} Department</h1>
+  {% else %}
+    <h1>All Departments</h1>
+  {% endif %}
+  <ul>
+    {% for doctor in doctors %}
+      <li><a href="{% url 'doctor_profile' doctor.id %}">{{ doctor.doctor.first_name }} {{ doctor.doctor.last_name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

@@ -1,0 +1,20 @@
+<!-- create_appointment.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Make an Appointment</h1>
+  <p>With {{ doctor.doctor.first_name }} {{ doctor.doctor.last_name }}</p>
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Make Appointment">
+  </form>
+  
+  {% if appointment.id %}
+    <p><a href="{% url 'patient_appointment_details' appointment.id %}">View Appointment Details</a></p>
+  {% endif %}
+{% endblock content %}
+
+
